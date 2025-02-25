@@ -1,1 +1,2 @@
 # Veri-Bilimi
+Bu projede, Bank veritabanından veriler çekilerek Visual Studio ortamında integration services project oluşturulup SSIS Toolbox kullanarak sorgular gerçekleştirildi. Verileri uygun veri türlerine göre ayarlayarak, veri entegrasyonu işlemleri sağlanıldı. Visual Studio'ya SSIS araçları ekleyerek, gerekli bileşenleri ve paketleri düzgün bir şekilde entegre edildi. Bu sayede, verilerin doğru şekilde taşınması, dönüştürülmesi ve yüklenmesi işlemleri başarıyla gerçekleştirildi.
