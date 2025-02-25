@@ -1,0 +1,1859 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/22/2024 3:41:13 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CANSU"
+  DTS:CreatorName="CANSU\User"
+  DTS:DTSID="{BBA7E066-19D6-4F55-BE0A-8A78E5B3900B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Sorgu1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{66DAC50B-A475-443C-88F1-F224730F098E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B7C8DD8A-1A53-4AEC-8752-613F5B4AF08F}"
+      DTS:ObjectName="DESKTOP-ID8KEUH\TTSQL.BANK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-ID8KEUH\TTSQL;Initial Catalog=BANK;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{B7C8DD8A-1A53-4AEC-8752-613F5B4AF08F}CANSU\TTSQL.BANK;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SORGU-1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{87D4807E-0A39-40B6-B9D5-5663B0CFE688}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SORGU-1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SORGU-1\1-DOVIZ-TUR"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="1-DOVIZ-TUR"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DOVIZ_TUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SORGU-1\1-DOVIZ-TUR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      length="3"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      name="DovizID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[Kur]"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]"
+                      name="Kur"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      name="DovizID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[Isim]"
+                      dataType="wstr"
+                      length="20"
+                      name="Isim" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[Kur]"
+                      dataType="r8"
+                      name="Kur" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      name="DovizID" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[Kur]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[Kur]"
+                      name="Kur" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\1-MUSTERI"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="1-MUSTERI"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MUSTERI]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SORGU-1\1-MUSTERI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
+                      dataType="i8"
+                      name="TCKimlikNo" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IlkAd" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IkinciAd" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Soyad" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
+                      dataType="dbTimeStamp"
+                      name="DTarihi" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
+                      dataType="bool"
+                      name="Cinsiyet" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
+                      dataType="bool"
+                      name="MedeniHal" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
+                      dataType="ui1"
+                      name="YasGrupID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\1-MUSTERI-VARLIK"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="1-MUSTERI-VARLIK"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MUSTERI_VARLIK]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SORGU-1\1-MUSTERI-VARLIK.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ID8KEUH\TTSQL.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[Deger]"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]"
+                      name="Deger"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      length="3"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      name="DovizID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      name="DovizID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[VarlikID]"
+                      dataType="i4"
+                      name="VarlikID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[TurID]"
+                      dataType="ui1"
+                      name="TurID" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[Deger]"
+                      dataType="r8"
+                      name="Deger" />
+                    <externalMetadataColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[EdinmeTarihi]"
+                      dataType="dbTimeStamp"
+                      name="EdinmeTarihi" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[Deger]"
+                      name="Deger" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      name="DovizID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\SORGU-1\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="MUSTERI-MUSTERI-VARLIK"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\SORGU-1\SortM.Outputs[Sort Output].Columns[MusteriID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[Deger]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[DovizID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]"
+                      name="DovizID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[DovizID]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[Deger]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\SORGU-1\SortDT.Outputs[Sort Output].Columns[DovizID]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input].Columns[Kur]"
+                      cachedDataType="r8"
+                      cachedName="Kur"
+                      lineageId="Package\SORGU-1\SortDT.Outputs[Sort Output].Columns[Kur]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[DovizID]"
+                      name="DovizID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]"
+                      name="Kur">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input].Columns[Kur]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="MUSTERİ-TOPLAM-VARLIK"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Inputs[Aggregate Input 1].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Inputs[Aggregate Input 1].Columns[VarlikTRY]"
+                      cachedDataType="r8"
+                      cachedName="VarlikTRY"
+                      lineageId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[VarlikTRY]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[VarlikTRY]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[VarlikTRY]"
+                      name="VarlikTRY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[VarlikTRY]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\NULL-VARLIK-KONTROL"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="NULL-VARLIK-KONTROL"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Inputs[Derived Column Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]" />
+                    <inputColumn
+                      refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Inputs[Derived Column Input].Columns[Kur]"
+                      cachedDataType="r8"
+                      cachedName="Kur"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SORGU-1\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[VarlikTRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[VarlikTRY]"
+                      name="VarlikTRY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]} * #{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Deger * Kur,0)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SORGU-1\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\SortDT"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SortDT"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\SortDT.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortDT.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortDT.Inputs[Sort Input].Columns[Kur]"
+                      cachedDataType="r8"
+                      cachedName="Kur"
+                      lineageId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\SortDT.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortDT.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\SortDT.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortDT.Outputs[Sort Output].Columns[Kur]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\SortDT.Outputs[Sort Output].Columns[Kur]"
+                      name="Kur">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\SortM"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SortM"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\SortM.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortM.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\SortM.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortM.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\SortM.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\SortMMV"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SortMMV"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\SortMMV.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortMMV.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortMMV.Inputs[Sort Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortMMV.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\SortMMV.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\SortMMV.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORGU-1\SortMV"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SortMV"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORGU-1\SortMV.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortMV.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortMV.Inputs[Sort Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORGU-1\SortMV.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORGU-1\SortMV.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\SORGU-1\SortMV.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SORGU-1.Paths[Aggregate Output 1]"
+              endId="Package\SORGU-1\Multicast.Inputs[Multicast Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\SORGU-1.Paths[Derived Column Output]"
+              endId="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\SORGU-1\NULL-VARLIK-KONTROL.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[Merge Join Output]"
+              endId="Package\SORGU-1\SortMMV.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[Merge Join Output1]"
+              endId="Package\SORGU-1\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[OLE DB Source Output]"
+              endId="Package\SORGU-1\SortM.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\SORGU-1\1-MUSTERI.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[OLE DB Source Output1]"
+              endId="Package\SORGU-1\SortMV.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\SORGU-1\1-MUSTERI-VARLIK.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[OLE DB Source Output2]"
+              endId="Package\SORGU-1\SortDT.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\SORGU-1\1-DOVIZ-TUR.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[Sort Output]"
+              endId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\SORGU-1\SortM.Outputs[Sort Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[Sort Output1]"
+              endId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\SORGU-1\SortMV.Outputs[Sort Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[Sort Output2]"
+              endId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\SORGU-1\SortMMV.Outputs[Sort Output]" />
+            <path
+              refId="Package\SORGU-1.Paths[Sort Output3]"
+              endId="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\SORGU-1\SortDT.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\SORGU-1"
+          TopLeft="109.166660702063,58.9333329235183" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SORGU-1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\SORGU-1\NULL-VARLIK-KONTROL"
+          TopLeft="639.499968719981,429.066664707992" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\SORGU-1\SortMMV"
+          TopLeft="259.599993989865,349.533331495192" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR"
+          TopLeft="589.999971861642,343.199998625914" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SORGU-1\1-MUSTERI"
+          TopLeft="132.291659438569,61.3333327607976" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\SORGU-1\SortM"
+          TopLeft="147.099996858339,158.999999077916" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\SORGU-1\1-MUSTERI-VARLIK"
+          TopLeft="339.583314779319,61.6333327517575" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SORGU-1\SortMV"
+          TopLeft="360.766655511492,166.199999041756" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\SORGU-1\MUSTERİ-TOPLAM-VARLIK"
+          TopLeft="926.333302007782,432.933331332472" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\SORGU-1\MUSTERI-MUSTERI-VARLIK"
+          TopLeft="212.708318979583,256.116664920432" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\SORGU-1\SortDT"
+          TopLeft="683.8333242726,169.666665630076" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\SORGU-1\Multicast"
+          TopLeft="1232.66663297349,429.133332272636" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SORGU-1\1-DOVIZ-TUR"
+          TopLeft="672.58330794962,45.5833327381974" />
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Merge Join Output]"
+          TopLeft="332.154156484724,298.116664920432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.41666657476"
+              Start="0,0"
+              End="0,43.91666657476">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.91666657476" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Derived Column Output]"
+          TopLeft="870.499968719981,451.999998020232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.8333332878011,0"
+              Start="0,0"
+              End="48.3333332878011,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.3333332878011,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Aggregate Output 1]"
+          TopLeft="1162.33330200778,452.033331802554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.333330965705,0"
+              Start="0,0"
+              End="62.833330965705,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="62.833330965705,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.4166654828525,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Sort Output3]"
+          TopLeft="752.166648067121,211.666665630076">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131.533332995838"
+              Start="0,0"
+              End="0,124.033332995838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,124.033332995838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Sort Output2]"
+          TopLeft="406.599993989865,367.366665060553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183.399977871777,0"
+              Start="0,0"
+              End="175.899977871777,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="175.899977871777,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Sort Output1]"
+          TopLeft="436.766655511492,208.199999041756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-67.3916698652423,47.916665878676"
+              Start="0,0"
+              End="-67.3916698652423,40.416665878676">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5572082478949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5572082478949"
+                    Point2="0,28.5572082478949"
+                    Point3="-4,28.5572082478949" />
+                  <mssgle:LineSegment
+                    End="-63.3916698652423,28.5572082478949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-63.3916698652423,28.5572082478949"
+                    Point2="-67.3916698652423,28.5572082478949"
+                    Point3="-67.3916698652423,32.5572082478949" />
+                  <mssgle:LineSegment
+                    End="-67.3916698652423,40.416665878676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Sort Output]"
+          TopLeft="209.099996858339,200.999999077916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.9416554545773,55.116665842516"
+              Start="0,0"
+              End="83.9416554545773,47.616665842516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8482392405942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8482392405942"
+                    Point2="0,32.8482392405942"
+                    Point3="4,32.8482392405942" />
+                  <mssgle:LineSegment
+                    End="79.9416554545773,32.8482392405942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.9416554545773,32.8482392405942"
+                    Point2="83.9416554545773,32.8482392405942"
+                    Point3="83.9416554545773,36.8482392405942" />
+                  <mssgle:LineSegment
+                    End="83.9416554545773,47.616665842516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[OLE DB Source Output2]"
+          TopLeft="752.70831611111,87.5833327381974">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82.0833328918786"
+              Start="0,0"
+              End="0,74.5833328918786">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5833328918786" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[OLE DB Source Output1]"
+          TopLeft="438.424985145405,103.633332751757">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.5666662899985"
+              Start="0,0"
+              End="0,55.0666662899985">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.0666662899985" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[OLE DB Source Output]"
+          TopLeft="209.945828148454,103.333332760798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.6666663171184"
+              Start="0,0"
+              End="0,48.1666663171184">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.1666663171184" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORGU-1.Paths[Merge Join Output1]"
+          TopLeft="754.499970290811,385.199998625914">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.866666082078"
+              Start="0,0"
+              End="0,36.366666082078">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.366666082078" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SORGU-1\1-MUSTERI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SORGU-1\1-DOVIZ-TUR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SORGU-1\1-MUSTERI-VARLIK">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
